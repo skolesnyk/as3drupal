@@ -33,9 +33,27 @@ package com.ghostthinker.connection.drupal
 			return new Array( {value: { value: obj.toString() } } );
 		}
 		
+		protected function createCCKFieldParMultiple( vals:Array ):Array
+		{
+			var refs:Array = new Array();
+			for each(var val:Object in vals) {
+					refs.push( { value: { value: val.toString() } } );
+			}
+			return refs;
+		}
+		
 		protected function createNodeRefPar( obj:Object ):Array
 		{
 			return new Array( {nid: obj.toString()} );
+		}
+		
+		protected function createNodeRefParMultiple( nids:Array ):Array
+		{
+			var refs:Array = new Array();
+			for each(var nid:Object in nids) {
+					refs.push( {nid: nid.toString()});
+			}
+			return refs;
 		}
 		
 		protected function createUserRefPar( obj:Object ):Array
