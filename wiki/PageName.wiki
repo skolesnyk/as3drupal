@@ -26,5 +26,3 @@ as3drupal is an as3 lib to connect drupal with flash via xmlrpc. It has an easy 
    * loggout
   * Taxonomy Service
     * getTree
-
-= Future =
