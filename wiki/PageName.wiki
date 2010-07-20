@@ -1,0 +1,30 @@
+#summary Features
+
+= Introduction =
+
+as3drupal is an as3 lib to connect drupal with flash via xmlrpc. It has an easy to extend interface to quickly add new services. Drupal nodes are implemented as classes an can easiliy be extended for custom content types with  cck fields.
+
+
+= Features =
+ * services.module like structure (servers, services)
+ * API key implementation
+ * XMLRPC Server implemented
+ * Node classes for drupal nodes -> easy data handling
+
+= Services =
+  * System Service
+   * connect
+   * disconnect
+  * Node Service
+   * load
+   * save
+   * delete
+  * Views Service
+   * load
+  * User Service
+   * login
+   * loggout
+  * Taxonomy Service
+    * getTree
+
+= Future =
