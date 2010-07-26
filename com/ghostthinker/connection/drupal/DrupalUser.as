@@ -16,19 +16,35 @@
 		private var _picture:String;
 		private var _roles:Array;
 		//more field should be added
+		private var _domainIds:Array;
 		
-		public function DrupalUser(name:String,uid:int,mail:String,picture:String) 
+		public function DrupalUser( name:String = "anonymous" , uid:int = 0 , picture:String = "" , mail:String = "nomail@no.mail" ) 
 		{
 			this._name = name;
 			this._uid = uid;
 			this._mail = mail;
-			this._picture = picture;	
+			this._picture = picture;
+			this._roles = new Array();
+			this._domainIds = new Array();
 		}
 		
-		public static function fromResponse(response:Object):DrupalUser {
-			
+		protected function addDomainId( domainId:int ) 
+		{
+			this._domainIds.push( domainId );
 		}
 		
+		protected function addRole( role:DrupalRole ) 
+		{
+			this._roles.push( role );
+		}
+		
+		public function get name():String {	return _name; }
+		public function get uid():String  {	return _uid; }
+		public function get mail():String {	return _mail; }
+		public function get picture():String {	return _picture; }
+		public function get roles():Array {	return _roles; }
+		public function get domainIds():Array {	return _domainIds;}
+
 	}
 	
 }
