@@ -23,8 +23,8 @@
 				
 				super(  __name ,
 						__uid ,
-						__mail ,
-						__picture
+						__picture ,
+						__mail
 					);
 			}
 			catch(e)
