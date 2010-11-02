@@ -39,7 +39,7 @@ package com.ghostthinker.connection.drupal.service
 		{
 			var sc:ServiceCall = new ServiceCall( SERVICE_CALL_GET_TREE);
 			sc.addParam( vid       , ServiceCall.TYPE_STRING);
-			//sc.addParam( parentTid , ServiceCall.TYPE_STRING);
+		//	sc.addParam( parentTid , ServiceCall.TYPE_STRING);
 			
 			if( maxDepth >= 0 ){
 				sc.addParam( maxDepth, ServiceCall.TYPE_STRING);
