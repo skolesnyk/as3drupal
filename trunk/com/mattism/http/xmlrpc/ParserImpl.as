@@ -9,7 +9,6 @@
 
 package com.mattism.http.xmlrpc
 {
-	import com.ghostthinker.util.Logger;
 	import com.mattism.http.xmlrpc.Parser;
 	import com.mattism.http.xmlrpc.util.XMLRPCUtils;
 	import com.mattism.http.xmlrpc.util.XMLRPCDataTypes;
@@ -39,7 +38,7 @@ package com.mattism.http.xmlrpc
 		public function parse( xml:XML ):Object {
 			//trace( xml.toString() ); //metscher 3.04.2008 - 16:01
 			if ( xml.toString().toLowerCase().indexOf('<html') >= 0 ){
-				Logger.info("WARNING: XML-RPC Response looks like an html page.", xml.toString());
+				this.debug("WARNING: XML-RPC Response looks like an html page: " + xml.toString());
 				return xml.toString();
 			}
 			
