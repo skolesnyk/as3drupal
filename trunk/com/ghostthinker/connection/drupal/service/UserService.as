@@ -38,11 +38,16 @@
 			
 			var rep:Object = evt.target.getResponse();
 			//set the user var if we are logged in
-			if( !containsError( evt.target.getResponse() ) ){
-				if (evt.target.getResponse().user.name) {
+			if ( !containsError( evt.target.getResponse() ) ) {
+				
+				if ( !(evt.target.getResponse() is String) && evt.target.getResponse().user.name) {
 						//init the new session id 
 						_server.initSession(evt.target.getResponse().sessid);
 						this._server.initUser(evt.target.getResponse().user);
+				}
+				else
+				{
+					this.dispatchEvent(new ServiceEvent(evt.target.getResponse(),UserService.ERROR_LOGIN));
 				}
 				this.dispatchEvent(new ServiceEvent(evt.target.getResponse(),UserService.EVENT_ON_LOGIN));
 			}
