@@ -61,6 +61,12 @@ package com.ghostthinker.connection.drupal
 			return new Array( {uid: obj.toString()} );
 		}
 		
+		/**
+		 * createTaxonomy
+		 * @param	terms is an array containing DrupalTerms
+		 * @return  object containing the terms drupal service preformatted
+		 */
+
 		protected function createTaxonomy( terms:Array  ):Object
 		{	
 			var taxonomy = new Object();
@@ -74,6 +80,5 @@ package com.ghostthinker.connection.drupal
 			}
 			return taxonomy;
 		}
-		
 	}
 }
