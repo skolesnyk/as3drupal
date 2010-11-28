@@ -24,7 +24,6 @@ package com.mattism.http.xmlrpc
 	import com.mattism.http.xmlrpc.MethodFaultImpl;
 	import com.mattism.http.xmlrpc.Parser;
 	import com.mattism.http.xmlrpc.ParserImpl;
-	import com.ghostthinker.util.Logger;
 	
 	public class ConnectionImpl
 	extends EventDispatcher

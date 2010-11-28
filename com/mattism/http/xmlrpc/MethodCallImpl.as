@@ -13,8 +13,6 @@ package com.mattism.http.xmlrpc
 	import com.mattism.http.xmlrpc.util.XMLRPCDataTypes;
 	import com.mattism.http.xmlrpc.MethodCall;
 	
-	import com.ghostthinker.util.Logger;
-	
 	public class MethodCallImpl
 	implements MethodCall
 	{

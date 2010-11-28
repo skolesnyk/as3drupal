@@ -2,9 +2,10 @@
 {
 	import com.ghostthinker.connection.drupal.event.ServerEvent;
 	import com.ghostthinker.connection.drupal.service.ServiceCall;
-	import flash.events.Event;
-
 	
+	import com.adobe.crypto.HMAC;
+	
+	import flash.events.Event;
 	import flash.events.ErrorEvent;
 	import flash.events.EventDispatcher;
 	
@@ -77,7 +78,7 @@
             hash += serviceCall.serviceName;
             
             //the hased api key
-            var apiHash:String = com.adobe.crypto.HMAC.hash(this._apikey,hash, com.adobe.crypto.SHA256);
+            var apiHash:String = HMAC.hash(this._apikey,hash, com.adobe.crypto.SHA256);
             
             //now insert the details into the serviceCall - the order is important
             serviceCall.addParamAtBegin(nonce);
