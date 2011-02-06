@@ -39,7 +39,7 @@
 		}
 		
 		public function get name():String {	return _name; }
-		public function get uid():String  {	return _uid; }
+		public function get uid():int  {	return _uid; }
 		public function get mail():String {	return _mail; }
 		public function get picture():String {	return _picture; }
 		public function get roles():Array {	return _roles; }
