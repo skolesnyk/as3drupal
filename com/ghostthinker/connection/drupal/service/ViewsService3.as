@@ -9,14 +9,12 @@
 	 * ...
 	 * @author Johannes Metscher
 	 */
-	public class ViewsService extends AbstractService
+	public class ViewsService3 extends ViewsService
 	{
 		
-		public static const EVENT_VIEW_LOAD:String = "views.onViewLoad";
-		public static const ERROR_VIEW_NOT_FOUND:String	=	"View does not exist.";
-		public static const SERVICE_CALL_VIEWS_LOAD:String = "views.get"; 
+		public static const SERVICE_CALL_VIEWS_LOAD:String = "views.retrieve"; 
 		
-		public function ViewsService( server:IServer)
+		public function ViewsService3( server:IServer)
 		{
 			super( server );
 			this.addError(ERROR_VIEW_NOT_FOUND);
@@ -26,7 +24,7 @@
 		 * Load a view from Drupal
 		 * @param nid the nid of the node
 		 */
-		public function load( viewName:String , fields:Array , args:Array,offset:String, limit:String ):void
+		override public function load( viewName:String , fields:Array , args:Array,offset:String, limit:String ):void
 		{
 			var sc:ServiceCall = new ServiceCall(SERVICE_CALL_VIEWS_LOAD);
 			sc.addParam( viewName, ServiceCall.TYPE_STRING);

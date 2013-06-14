@@ -14,6 +14,7 @@
 package com.mattism.http.xmlrpc
 {
 	import flash.events.IEventDispatcher;
+	import flash.net.URLRequestHeader;
 	
 	import com.mattism.http.xmlrpc.MethodFault;
 
@@ -50,7 +51,7 @@ package com.mattism.http.xmlrpc
 		* @usage	<code>myConn.call("getMenu");</code>
 		* @param	A remote method name (String).
 		*/
-		function call( method:String ):void;
+		function call( method:String, header:URLRequestHeader=null ):void;
 		
 		function getResponse():Object;
 		

@@ -12,15 +12,12 @@
 	 */
 	public class NodeService3 extends NodeService
 	{
-		
-		public static const SERVICE_CALL_NODE_GET:String = "node.retrieve"; 
-		public static const SERVICE_CALL_NODE_SAVE:String = "node.create"; 
-		public static const SERVICE_CALL_NODE_UPDATE:String = "node.update"; 
-		public static const SERVICE_CALL_NODE_DELETE:String = "node.delete"; 
-		
-		
 		public function NodeService3( server:IServer)
 		{
+			SERVICE_CALL_NODE_GET = "node.retrieve"; 
+			SERVICE_CALL_NODE_SAVE = "node.create"; 
+			SERVICE_CALL_NODE_UPDATE = "node.update"; 
+			SERVICE_CALL_NODE_DELETE = "node.delete"; 
 			super( server );
 		}
 	
