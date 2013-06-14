@@ -15,7 +15,10 @@
 		
 		public static const EVENT_NODE_LOAD:String 	 = "node.onNodeLoad";
 		public static const EVENT_NODE_SAVE:String	 = "node.onNodeSave";
-		public static const EVENT_NODE_DELETE:String = "node.onNodeDeleted"; 
+		public static const EVENT_NODE_DELETE:String = "node.onNodeDeleted";
+		public static const SERVICE_CALL_NODE_GET:String = "node.get"; 
+		public static const SERVICE_CALL_NODE_SAVE:String = "node.save"; 
+		public static const SERVICE_CALL_NODE_DELETE:String = "node.delete"; 
 		
 		
 		public function NodeService( server:IServer)
@@ -29,7 +32,7 @@
 		 */
 		public function load( nid:int, callback:Function=null):void
 		{
-			var sc:ServiceCall = new ServiceCall('node.get');
+			var sc:ServiceCall = new ServiceCall( SERVICE_CALL_NODE_GET );
 			sc.addParam( nid,ServiceCall.TYPE_INT);
 			
 			this._server.call(sc,callback?callback:onLoaded);
@@ -67,7 +70,7 @@
 				}
 			}
 
-			var sc:ServiceCall = new ServiceCall('node.save');
+			var sc:ServiceCall = new ServiceCall(SERVICE_CALL_NODE_SAVE);
 			sc.addParam(node,ServiceCall.TYPE_STRUCT);
 			this._server.call(sc,this.onSaved);
 			
@@ -101,7 +104,7 @@
 				}
 			}
 
-			var sc:ServiceCall = new ServiceCall('node.save');
+			var sc:ServiceCall = new ServiceCall(SERVICE_CALL_NODE_SAVE);
 			sc.addParam(node,ServiceCall.TYPE_STRUCT);
 			this._server.call(sc,this.onSavedNowLoad);
 		}
@@ -125,7 +128,7 @@
 		 * @param nid the nid of the node
 		 */
 		public function deleteNode( nid:int ):void{
-			var sc:ServiceCall = new ServiceCall('node.delete');
+			var sc:ServiceCall = new ServiceCall(SERVICE_CALL_NODE_DELETE);
 			sc.addParam( nid,ServiceCall.TYPE_INT);
 			this._server.call(sc,this.onDeleted);
 		}
