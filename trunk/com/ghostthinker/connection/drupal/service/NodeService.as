@@ -13,12 +13,12 @@
 	public class NodeService extends AbstractService
 	{
 		
-		public static const EVENT_NODE_LOAD:String 	 = "node.onNodeLoad";
-		public static const EVENT_NODE_SAVE:String	 = "node.onNodeSave";
-		public static const EVENT_NODE_DELETE:String = "node.onNodeDeleted";
-		public static const SERVICE_CALL_NODE_GET:String = "node.get"; 
-		public static const SERVICE_CALL_NODE_SAVE:String = "node.save"; 
-		public static const SERVICE_CALL_NODE_DELETE:String = "node.delete"; 
+		public static var EVENT_NODE_LOAD:String 	 = "node.onNodeLoad";
+		public static var EVENT_NODE_SAVE:String	 = "node.onNodeSave";
+		public static var EVENT_NODE_DELETE:String = "node.onNodeDeleted";
+		public static var SERVICE_CALL_NODE_GET:String = "node.get"; 
+		public static var SERVICE_CALL_NODE_SAVE:String = "node.save"; 
+		public static var SERVICE_CALL_NODE_DELETE:String = "node.delete"; 
 		
 		
 		public function NodeService( server:IServer)

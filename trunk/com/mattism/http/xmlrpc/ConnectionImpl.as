@@ -14,6 +14,7 @@ package com.mattism.http.xmlrpc
 	import flash.events.EventDispatcher;
 	import flash.net.URLLoader;
 	import flash.net.URLRequest;
+	import flash.net.URLRequestHeader;
 	import flash.net.URLRequestMethod;
 	import flash.events.IOErrorEvent;
 	
@@ -71,9 +72,9 @@ package com.mattism.http.xmlrpc
 			dispatchEvent(new ErrorEvent(ErrorEvent.ERROR));
 		}
 		
-		public function call( method:String ):void { this._call( method ); }
+		public function call( method:String, header:URLRequestHeader = null ):void { this._call( method, header ); }
 	
-		private function _call( method:String ):void {
+		private function _call( method:String, header:URLRequestHeader ):void {
 			if ( !this.getUrl() ){
 				throw Error(ERROR_NO_URL);
 			}
@@ -88,6 +89,11 @@ package com.mattism.http.xmlrpc
 				request.method = URLRequestMethod.POST;
 				request.url = this.getUrl();
 				debug(this._method.getXml());
+				
+				if (header != null) {
+					request.requestHeaders.push(header);
+				}
+				
 				this._response.load(request);
 			}
 		}

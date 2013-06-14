@@ -53,6 +53,7 @@
 			if(!containsError(evt.target.getResponse())){
 				if(evt.target.getResponse().sessid){
 					this._server.initSession(evt.target.getResponse().sessid);
+					//this._server.initSession(evt.target.getResponse().session_name);
 					//we have a valid user
 					if(evt.target.getResponse().user && evt.target.getResponse().user.name){
 						this._server.initUser(evt.target.getResponse().user);
