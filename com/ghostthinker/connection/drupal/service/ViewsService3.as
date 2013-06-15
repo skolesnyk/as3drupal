@@ -9,9 +9,10 @@
 	 * ...
 	 * @author Johannes Metscher
 	 */
-	public class ViewsService3 extends ViewsService
+	public class ViewsService3  extends AbstractService
 	{
-		
+		public static const EVENT_VIEW_LOAD:String = "views.onViewLoad";
+		public static const ERROR_VIEW_NOT_FOUND:String	=	"View does not exist.";
 		public static const SERVICE_CALL_VIEWS_LOAD:String = "views.retrieve"; 
 		
 		public function ViewsService3( server:IServer)
@@ -24,12 +25,25 @@
 		 * Load a view from Drupal
 		 * @param nid the nid of the node
 		 */
-		override public function load( viewName:String , fields:Array , args:Array,offset:String, limit:String ):void
+		public function load( view_name:String , display_id:String="default" , args:Array = null,offset:String="0", limit:String="10",filters:Array = null ):void
 		{
-			var sc:ServiceCall = new ServiceCall(SERVICE_CALL_VIEWS_LOAD);
-			sc.addParam( viewName, ServiceCall.TYPE_STRING);
-			sc.addParam( fields, ServiceCall.TYPE_ARRAY);
-			sc.addParam( args, ServiceCall.TYPE_ARRAY);
+ 			var sc:ServiceCall = new ServiceCall(SERVICE_CALL_VIEWS_LOAD);
+			sc.addParam( view_name, ServiceCall.TYPE_STRING);
+			sc.addParam( display_id, ServiceCall.TYPE_STRING);
+			if(args){
+				sc.addParam( args, ServiceCall.TYPE_ARRAY);
+			}
+			/*
+			if(offset){
+				sc.addParam( offset, ServiceCall.TYPE_STRING);
+			}
+			if(limit){
+				sc.addParam( limit, ServiceCall.TYPE_STRING);
+			}
+			if(filters){
+				sc.addParam( filters, ServiceCall.TYPE_ARRAY);
+			}
+			*/
 			this._server.call(sc,onLoaded);
 		}
 		
