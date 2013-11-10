@@ -15,6 +15,7 @@
 		private var _mail:String;
 		private var _picture:String;
 		private var _roles:Array;
+		private var _realname:String;
 		//more field should be added
 		private var _domainIds:Array;
 		
@@ -43,7 +44,22 @@
 		public function get mail():String {	return _mail; }
 		public function get picture():String {	return _picture; }
 		public function get roles():Array {	return _roles; }
-		public function get domainIds():Array {	return _domainIds;}
+		public function get domainIds():Array {	return _domainIds; }
+		
+		public function get realname():String 
+		{
+			if ( _realname) 
+			{
+				return _realname;
+			}
+			return name;
+			
+		}
+		
+		public function set realname(value:String):void 
+		{
+			_realname = value;
+		}
 
 	}
 	

@@ -19,13 +19,18 @@
 				var __name    =  raw.name ;
 				var __uid     = int(raw.uid);
 				var __mail    = raw.mail;
-				var __picture = raw.picture;
+				var __picture = raw.picture;				
 				
 				super(  __name ,
 						__uid ,
 						__picture ,
 						__mail
 					);
+					
+				if ( raw.realname && raw.realname != "" ) {
+					var __realname = raw.realname;
+					this.realname = __realname;
+				}
 			}
 			catch(e)
 			{

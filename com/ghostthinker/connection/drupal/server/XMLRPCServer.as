@@ -18,7 +18,7 @@
 
 		public function XMLRPCServer(serverURL:String,apiKey:String=null,apiDomain=null)
 		{
-			serverURL += "/xmlrpc.php";
+			serverURL = serverURL; //"/xmlrpc.php";
 			super(serverURL, apiKey,apiDomain); 
 			
 
